@@ -13,7 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "v1/kong/servicos/")
+@RequestMapping(value = "v1/kong/servicos")
 public class KeyAuthResource {
 
     private CreateConsumerService createConsumerService;
