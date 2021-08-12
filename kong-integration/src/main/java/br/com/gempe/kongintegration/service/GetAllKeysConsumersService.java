@@ -1,6 +1,6 @@
 package br.com.gempe.kongintegration.service;
 
-import br.com.gempe.kongintegration.dataprovider.CreateConsumerDataProvider;
+import br.com.gempe.kongintegration.dataprovider.KongIntegrationDataProvider;
 import br.com.gempe.kongintegration.dataprovider.exception.DataProviderException;
 import br.com.gempe.kongintegration.entity.KeyAuthenticationEntity;
 import br.com.gempe.kongintegration.service.exception.ServiceException;
@@ -14,16 +14,16 @@ import java.util.List;
 @Component
 public class GetAllKeysConsumersService {
 
-    private final CreateConsumerDataProvider createConsumerDataProvider;
+    private final KongIntegrationDataProvider kongIntegrationDataProvider;
 
     @Autowired
-    public GetAllKeysConsumersService(CreateConsumerDataProvider createConsumerDataProvider){
-        this.createConsumerDataProvider = createConsumerDataProvider;
+    public GetAllKeysConsumersService(KongIntegrationDataProvider kongIntegrationDataProvider){
+        this.kongIntegrationDataProvider = kongIntegrationDataProvider;
     }
 
     public List<KeyAuthenticationEntity> execute(){
         try{
-            return this.createConsumerDataProvider.getAllKeysConsumers();
+            return this.kongIntegrationDataProvider.getAllKeysConsumers();
         }catch (DataProviderException e){
             throw new ServiceException(ExceptionMessageUtil.ERRO_INTEGRAR_KONG + e.getMessage());
         }

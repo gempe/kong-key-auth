@@ -1,6 +1,6 @@
 package br.com.gempe.kongintegration.service;
 
-import br.com.gempe.kongintegration.dataprovider.CreateConsumerDataProvider;
+import br.com.gempe.kongintegration.dataprovider.KongIntegrationDataProvider;
 import br.com.gempe.kongintegration.dataprovider.exception.DataProviderException;
 import br.com.gempe.kongintegration.entity.ConsumerPayLoadEntity;
 import br.com.gempe.kongintegration.service.exception.ServiceException;
@@ -12,16 +12,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class CreateConsumerService {
 
-    private final CreateConsumerDataProvider createConsumerDataProvider;
+    private final KongIntegrationDataProvider kongIntegrationDataProvider;
 
     @Autowired
-    public CreateConsumerService(CreateConsumerDataProvider createConsumerDataProvider){
-        this.createConsumerDataProvider = createConsumerDataProvider;
+    public CreateConsumerService(KongIntegrationDataProvider kongIntegrationDataProvider){
+        this.kongIntegrationDataProvider = kongIntegrationDataProvider;
     }
 
     public void execute(ConsumerPayLoadEntity consumer){
         try{
-            this.createConsumerDataProvider.createConsumer(consumer);
+            this.kongIntegrationDataProvider.createConsumer(consumer);
         }catch (DataProviderException e){
             throw new ServiceException(ExceptionMessageUtil.ERRO_INTEGRAR_KONG + e.getMessage());
         }

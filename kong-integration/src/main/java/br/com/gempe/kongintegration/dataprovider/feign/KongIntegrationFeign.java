@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "kongIntegration", url = "${kong.client.host}")
-public interface CreateConsumerFeign {
+public interface KongIntegrationFeign {
 
     @PostMapping(value = "/consumers", consumes = "application/json")
     void createConsumer(@RequestBody ConsumerPayLoadEntity consumer);

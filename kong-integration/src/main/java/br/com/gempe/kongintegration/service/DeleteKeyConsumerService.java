@@ -1,6 +1,6 @@
 package br.com.gempe.kongintegration.service;
 
-import br.com.gempe.kongintegration.dataprovider.CreateConsumerDataProvider;
+import br.com.gempe.kongintegration.dataprovider.KongIntegrationDataProvider;
 import br.com.gempe.kongintegration.dataprovider.exception.DataProviderException;
 import br.com.gempe.kongintegration.service.exception.ServiceException;
 import br.com.gempe.kongintegration.util.ExceptionMessageUtil;
@@ -11,16 +11,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class DeleteKeyConsumerService {
 
-    private final CreateConsumerDataProvider createConsumerDataProvider;
+    private final KongIntegrationDataProvider kongIntegrationDataProvider;
 
     @Autowired
-    public DeleteKeyConsumerService(CreateConsumerDataProvider createConsumerDataProvider){
-        this.createConsumerDataProvider = createConsumerDataProvider;
+    public DeleteKeyConsumerService(KongIntegrationDataProvider kongIntegrationDataProvider){
+        this.kongIntegrationDataProvider = kongIntegrationDataProvider;
     }
 
     public void execute(String consumer, String key){
         try{
-            this.createConsumerDataProvider.deleteKeyConsumer(consumer, key);
+            this.kongIntegrationDataProvider.deleteKeyConsumer(consumer, key);
         }catch (DataProviderException e){
             throw new ServiceException(ExceptionMessageUtil.ERRO_INTEGRAR_KONG + e.getMessage());
         }
