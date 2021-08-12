@@ -1,7 +1,7 @@
 FROM golang:1.16 as builder
 
 WORKDIR /go/src/
-COPY . .
+COPY service-go .
 RUN GOOS=linux CGO_ENABLED=0 go build -o server main.go 
 
 FROM scratch
