@@ -130,3 +130,22 @@ services:
       - db
     ports:
       - "1337:1337"
+
+  servicea:
+    image: wesleywillians/kong-service:latest
+    environment:
+      PORT: ":8081"
+      CONTENT: "<h1>Service A</h1>"
+    networks:
+      - kong-net
+    ports:
+      - 8081:8081
+
+  spring-boot:
+    build:
+      context: .
+      dockerfile: ./kong-integration/Dockerfile
+    networks:
+      - kong-net
+    ports:
+      - 8080:8080
