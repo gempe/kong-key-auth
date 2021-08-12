@@ -1,7 +1,11 @@
 # Autenticação de rotas - Api Gateway Kong - Spring Boot - Docker
 
 ## Sobre
-Esta poc visa a integração de serviços via api gateway Kong, o objetivo é criar validações em rotas, para que apenas consumidores devidamente cadastrados e autenticados consiga consumir determinado serviço. A partir de um serviço java, com intuito administrativo, é possível criar autenticaçao a uma rota com um plugin, criar consumidores, criar chave de autenticação a consumidores, deletar uma chave de autenticação, consultar todas chaves existentes e consultar chaves de um consumidor específico. 
+Esta poc visa a integração de serviços via api gateway Kong.
+
+O objetivo é criar validações em rotas, para que apenas consumidores devidamente cadastrados e autenticados consigam consumir determinado serviço.
+
+A partir de um serviço java, com intuito administrativo, é possível criar autenticação a uma rota com um plugin, criar consumidores, criar chave de autenticação a consumidores, deletar uma chave de autenticação, consultar todas chaves existentes e consultar chaves de um consumidor específico. 
 
 ## Requisitos
   - docker
